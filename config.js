@@ -5,7 +5,7 @@
 require("dotenv").config();
 require("colors");
 
-const SECRET_KEY = process.env.SECRET_KEY || "secret-dev";
+const SECRET_KEY = process.env.SECRET_KEY || "backend-key";
 
 const PORT = +process.env.PORT || 3001;
 
@@ -13,7 +13,7 @@ const PORT = +process.env.PORT || 3001;
 function getDatabaseUri() {
   return (process.env.NODE_ENV === "test")
       ? "jobly_test"
-      : process.env.DATABASE_URL || "psql:///jobly";
+      : process.env.DATABASE_URL || "postgresql://postgres.klqphzaynzccbhidnbco:[YOUR-PASSWORD]@aws-0-us-west-1.pooler.supabase.com:6543/postgres";
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
